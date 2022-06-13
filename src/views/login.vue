@@ -1,6 +1,11 @@
 <template>
   <div style="display: flex; justify-content: center">
-    <el-tabs class="elTab" type="border-card" tab-position="top">
+    <el-tabs
+      v-model="activeName"
+      class="elTab"
+      type="border-card"
+      tab-position="top"
+    >
       <el-tab-pane label="登录" name="1">
         <el-form status-icon :model="login" label-position="top">
           <el-form-item
@@ -95,6 +100,7 @@
 export default {
   data() {
     return {
+      activeName: "1",
       login: {
         name: "",
         password: "",
@@ -102,7 +108,12 @@ export default {
       ruleForm: {},
     };
   },
-  methods: {},
+  methods: {
+    submitForm() {},
+    resetForm(login) {
+      this.$refs[login].resetFields();
+    },
+  },
 };
 </script>
 <style lang="stylus">
