@@ -11,8 +11,8 @@
         </router-link>
       </el-col>
       <el-col :span="6" style="line-height: 58px">
-        <router-link style="color: white" to="login">登录</router-link> |
-        <router-link style="color: white" to="login">注册</router-link>
+        <router-link style="color: white" to="index">登录</router-link> |
+        <router-link style="color: white" to="index">注册</router-link>
       </el-col>
     </el-row>
     <div style="background-color: white">

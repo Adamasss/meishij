@@ -33,3 +33,13 @@ export async function getClassify() {
 export async function getProperty() {
   return await request.get("/menu/property");
 }
+
+// 注册账号
+export async function postCreate(params) {
+  return await request.post("/user/create", params)
+}
+
+// 登陆账号
+export async function postLogin(params) {
+  return await request.post("/user/login", params)
+}
