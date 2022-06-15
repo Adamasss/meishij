@@ -17,8 +17,8 @@
 	</div>
 </template>
 <script>
-import Login from "./Login.vue";
-import Register from "./Register.vue";
+import Login from "./Login";
+import Register from "./Register";
 export default {
 	components: {
 		Login,
