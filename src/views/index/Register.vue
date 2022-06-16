@@ -66,7 +66,11 @@ export default {
 			}
 		};
 		return {
-			ruleForm: {},
+			ruleForm: {
+				name: "",
+				password: "",
+				checkPass: "",
+			},
 			rules: {
 				name: [{ validator: validateUser, trigger: "blur" }],
 				password: [{ validator: validatePass, trigger: "blur" }],

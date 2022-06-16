@@ -46,7 +46,10 @@ export default {
 			}
 		};
 		return {
-			ruleForm: {},
+			ruleForm: {
+				name: "",
+				password: "",
+			},
 			rules: {
 				name: [{ validator: validateUser, trigger: "blur" }],
 				password: [{ validator: validatePass, trigger: "blur" }],
@@ -59,9 +62,9 @@ export default {
 				if (valid) {
 					postLogin(this.ruleForm).then((res) => {
 						if (res.code == "0") {
+							localStorage.setItem("token", res.data.token);
 							localStorage.setItem("_id", res.data._id);
 							localStorage.setItem("name", res.data.name);
-							localStorage.setItem("token", res.data.token);
 							this.$message({
 								showClose: true,
 								message: res.mes,

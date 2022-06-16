@@ -48,3 +48,8 @@ export async function postLogin(params) {
 export async function postLogOut(params) {
   return await request.post("/user/login_out", params);
 }
+
+// 获取用户信息
+export async function postUserInfo(params) {
+  return await request.post("/user/info", params);
+}

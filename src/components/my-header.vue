@@ -12,9 +12,18 @@
 			</el-col>
 			<el-col :span="6" style="line-height: 58px">
 				<!-- 登陆成功 -->
-				<div v-if="user.token">
-					<el-image src="" fit="fill"></el-image>
-					<p>{{ user.name }}</p>
+				<div
+					v-if="user.token"
+					style="display: flex; align-items: center; font-size: 0.8em"
+				>
+					<el-image
+						style="width: 30px; height: 30px"
+						:src="userInfo.avatar"
+						fit="fill"
+					></el-image>
+					<p style="margin-right: 10px">
+						{{ userInfo.name | username }}
+					</p>
 					<router-link to="/">发布菜谱</router-link>
 					<button @click="logOut">退出</button>
 				</div>
@@ -35,12 +44,13 @@
 </template>
 
 <script>
-import { postLogOut } from "@/apis";
+import { postLogOut, postUserInfo } from "@/apis";
 import headerVue from "./header.vue";
 export default {
 	components: { headerVue },
 	data() {
 		return {
+			userInfo: [],
 			user: {
 				_id: localStorage.getItem("_id"),
 				name: localStorage.getItem("name"),
@@ -67,11 +77,24 @@ export default {
 			});
 		},
 	},
+	mounted() {
+		let parmas = {};
+		parmas.userId = localStorage.getItem("userId");
+		postUserInfo(parmas).then((res) => {
+			this.userInfo = res.data;
+		});
+	},
 	watch: {
 		"$route.path": function () {
+			this.user.token = localStorage.getItem("token");
 			this.user._id = localStorage.getItem("_id");
 			this.user.name = localStorage.getItem("name");
-			this.user.token = localStorage.getItem("token");
+		},
+	},
+	// 过滤器 过滤用户名过长
+	filters: {
+		username: function (value) {
+			return (value = value.substring(0, 4) + "...");
 		},
 	},
 };
