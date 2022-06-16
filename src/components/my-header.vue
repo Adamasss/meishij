@@ -32,26 +32,15 @@
 				</div>
 			</el-col>
 		</el-row>
-		<div style="background-color: white">
-			<!-- default-active的值与子项中index的值相对应 -->
-			<el-menu
-				mode="horizontal"
-				router
-				:default-active="activeRouter"
-				style="width: 1200px; margin: 0 auto"
-			>
-				<el-menu-item index="home" :route="{ name: 'home' }">首页</el-menu-item>
-				<el-menu-item index="recipe" :route="{ name: 'recipe' }"
-					>菜谱大全</el-menu-item
-				>
-			</el-menu>
-		</div>
+		<headerVue></headerVue>
 	</div>
 </template>
 
 <script>
+import headerVue from "./header.vue";
 import { postLoginOut } from "@/apis";
 export default {
+	components: { headerVue },
 	data() {
 		return {
 			user: {
@@ -59,7 +48,6 @@ export default {
 				name: localStorage.getItem("name"),
 				token: localStorage.getItem("token"),
 			},
-			activeRouter: "home",
 		};
 	},
 	methods: {
@@ -82,14 +70,8 @@ export default {
 		},
 	},
 	watch: {
-		$route: {
-			handler(val) {
-				this.activeRouter = val.name;
-			},
-			immediate: true, // 立即执行
-		},
 		"$route.path": function () {
-			this.user._id = localStorage.getItem("_id");
+			this.user.id = localStorage.getItem("_id");
 			this.user.name = localStorage.getItem("name");
 			this.user.token = localStorage.getItem("token");
 		},

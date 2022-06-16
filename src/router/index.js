@@ -1,5 +1,8 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
+import home from "@/views/Home.vue"
+import recipe from "@/views/Recipe.vue"
+import user from "@/views/index/index.vue"
 
 Vue.use(VueRouter);
 
@@ -8,25 +11,19 @@ const routes = [
   {
     path: "/",
     name: "home",
-    component: () => {
-      import("@/views/Home.vue")
-    },
+    component: home,
   },
   // 菜谱大全
   {
     path: "/recipe",
     name: "recipe",
-    component: () => {
-      import("@/views/Recipe.vue")
-    },
+    component: recipe,
   },
   // 登录注册
   {
-    path: "/index",
-    name: "index",
-    component: () => {
-      import("@/views/index/index.vue")
-    },
+    path: "/user",
+    name: "user",
+    component: user
   },
 ];
 
