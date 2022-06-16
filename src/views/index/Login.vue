@@ -55,15 +55,25 @@ export default {
 	},
 	methods: {
 		submitForm(formName) {
-			this.$ref[formName].validate((val) => {
-				if (val) {
+			this.$refs[formName].validate((valid) => {
+				if (valid) {
 					postLogin(this.ruleForm).then((res) => {
-						alert(res.mes);
-						if (res.code == 0) {
+						if (res.code == "0") {
 							localStorage.setItem("_id", res.data._id);
 							localStorage.setItem("name", res.data.name);
 							localStorage.setItem("token", res.data.token);
+							this.$message({
+								showClose: true,
+								message: res.mes,
+								type: "success",
+							});
 							this.$router.push(`/`);
+						} else {
+							this.$message({
+								showClose: true,
+								message: res.mes,
+								type: "error",
+							});
 						}
 					});
 				}

@@ -49,6 +49,9 @@ export default {
 			if (value === "") {
 				callback(new Error("请输入密码"));
 			} else {
+				if (this.ruleForm.checkPass !== "") {
+					this.$refs.ruleForm.validateField("checkPass");
+				}
 				callback();
 			}
 		};
@@ -73,13 +76,23 @@ export default {
 	},
 	methods: {
 		submitForm(formName) {
-			this.$refs[formName].validate((val) => {
-				if (val) {
+			this.$refs[formName].validate((valid) => {
+				if (valid) {
 					// 发送表单数据到注册的api 成功返回0 用户名重复返回1
 					postCreate(this.ruleForm).then((res) => {
-						alert(res.mes);
-						if (res.code == 0) {
+						if (res.code == "0") {
+							this.$message({
+								showClose: true,
+								message: res.mes,
+								type: "success",
+							});
 							this.$router.push(`/user?name=login`);
+						} else {
+							this.$message({
+								showClose: true,
+								message: res.mes,
+								type: "error",
+							});
 						}
 					});
 				}

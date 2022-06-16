@@ -12,14 +12,14 @@
 			</el-col>
 			<el-col :span="6" style="line-height: 58px">
 				<!-- 登陆成功 -->
-				<div v-if="token">
+				<div v-if="user.token">
 					<el-image src="" fit="fill"></el-image>
 					<p>{{ user.name }}</p>
 					<router-link to="/">发布菜谱</router-link>
 					<button @click="logOut">退出</button>
 				</div>
 				<!-- 登录 -->
-				<div v-if="!token">
+				<div v-if="!user.token">
 					<router-link style="color: white" to="user?name=login"
 						>登录</router-link
 					>
