@@ -6,6 +6,10 @@ axios.interceptors.request.use(
   (config) => {
     // 以后所有请求地址自动携带api
     config.baseURL = "/api";
+    let token = localStorage.getItem("token");
+    if (token) {
+      config.headers.authorization = "token " + token;
+    }
     return config;
   },
   (err) => {
