@@ -2,7 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import Recipe from "../views/Recipe.vue";
-import index from "../views/index/index.vue";
+import user from "../views/index/user.vue";
 
 Vue.use(VueRouter);
 
@@ -21,9 +21,9 @@ const routes = [
   },
   // 登录注册
   {
-    path: "/index",
-    name: "index",
-    component: index,
+    path: "/user",
+    name: "user",
+    component: user,
   },
 ];
 

@@ -43,3 +43,8 @@ export async function postCreate(params) {
 export async function postLogin(params) {
   return await request.post("/user/login", params)
 }
+
+// 退出登录
+export async function postLogOut(params) {
+  return await request.post("/user/login_out", params);
+}
