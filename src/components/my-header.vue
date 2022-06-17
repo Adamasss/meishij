@@ -24,7 +24,7 @@
 					<p style="margin-right: 10px">
 						{{ userInfo.name | username }}
 					</p>
-					<router-link to="/">发布菜谱</router-link>
+					<router-link to="/publish">发布菜谱</router-link>
 					<button @click="logOut">退出</button>
 				</div>
 				<!-- 登录 -->
@@ -94,7 +94,7 @@ export default {
 	// 过滤器 过滤用户名过长
 	filters: {
 		username: function (value) {
-			return (value = value.substring(0, 4) + "...");
+			return (value = value.substr(0, 4) + "...");
 		},
 	},
 };

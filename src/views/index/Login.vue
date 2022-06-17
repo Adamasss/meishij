@@ -71,6 +71,7 @@ export default {
 								type: "success",
 							});
 							this.$router.push(`/`);
+							location.reload();
 						} else {
 							this.$message({
 								showClose: true,
