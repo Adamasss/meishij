@@ -1,7 +1,7 @@
 <template>
 	<div id="header">
 		<el-row type="flex" justify="space-between" style="background-color: red">
-			<el-col :span="6">
+			<el-col :span="5">
 				<router-link to="/">
 					<el-image
 						class="logo"
