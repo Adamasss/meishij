@@ -53,3 +53,8 @@ export async function postLogOut(params) {
 export async function postUserInfo(params) {
   return await request.post("/user/info", params);
 }
+
+// 获取菜单详情
+export async function getMenuInfo(params) {
+  return await request.get("/menu/menuInfo", { params: params });
+}

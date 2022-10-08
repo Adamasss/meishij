@@ -21,7 +21,7 @@
 						:src="userInfo.avatar"
 						fit="fill"
 					></el-image>
-					<p style="margin-right: 10px">
+					<p style="margin-right: 10px" v-if="userInfo.name">
 						{{ userInfo.name | username }}
 					</p>
 					<router-link to="/publish">发布菜谱</router-link>

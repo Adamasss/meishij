@@ -3,6 +3,7 @@ import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import Recipe from "../views/Recipe.vue";
 import user from "../views/index/user.vue";
+import Detail from "../views/detail/Detail.vue";
 
 Vue.use(VueRouter);
 
@@ -24,6 +25,12 @@ const routes = [
     path: "/user",
     name: "user",
     component: user,
+  },
+  // 菜谱详情
+  {
+    path: "/detail",
+    name: "detail",
+    component: Detail,
   },
 ];
 
