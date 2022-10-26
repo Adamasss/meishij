@@ -2,6 +2,7 @@
 	<div>
 		<DetailHeader :menuInfo="menuInfo"></DetailHeader>
 		<DetailContent :menuInfo="menuInfo"></DetailContent>
+		<CommentVue :menuInfo="menuInfo"></CommentVue>
 	</div>
 </template>
 
@@ -9,6 +10,7 @@
 import { getMenuInfo } from "@/apis";
 import DetailHeader from "./detail-header.vue";
 import DetailContent from "./detail-content.vue";
+import CommentVue from "./comment.vue";
 export default {
 	data() {
 		return {
@@ -22,7 +24,7 @@ export default {
 			},
 		};
 	},
-	components: { DetailHeader, DetailContent },
+	components: { DetailHeader, DetailContent, CommentVue },
 	methods: {},
 	watch: {
 		$route: {

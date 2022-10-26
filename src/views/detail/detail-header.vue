@@ -29,14 +29,9 @@
 						<p style="font-size: 20px">收藏</p>
 					</button>
 				</div>
-				<el-row
-					type="flex"
-					:gutter="24"
-					style="flex-wrap: wrap; margin: 0; padding: 0"
-				>
-					<el-col
-						:span="8"
-						style="width: 200px; height: 90px; border: 1px solid darkgray"
+				<ul style="display: flex; flex-wrap: wrap">
+					<li
+						style="width: 33%; height: 90px; border: 1px solid darkgray"
 						v-for="item in menuInfo.properties_show"
 						:key="item.index"
 					>
@@ -53,8 +48,8 @@
 						<p style="padding-left: 20px; font-size: 20px; color: red">
 							{{ item.name }}
 						</p>
-					</el-col>
-				</el-row>
+					</li>
+				</ul>
 				<div
 					style="
 						margin-top: 30px;
@@ -178,9 +173,7 @@ export default {
 		return {};
 	},
 	methods: {
-		store() {
-			console.log(1);
-		},
+		store() {},
 	},
 };
 </script>
